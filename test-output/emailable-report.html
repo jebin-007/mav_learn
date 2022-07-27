@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<title>TestNG Report</title>
+<style type="text/css">table {margin-bottom:10px;border-collapse:collapse;empty-cells:show}th,td {border:1px solid #009;padding:.25em .5em}th {vertical-align:bottom}td {vertical-align:top}table a {font-weight:bold}.stripe td {background-color: #E6EBF9}.num {text-align:right}.passedodd td {background-color: #3F3}.passedeven td {background-color: #0A0}.skippedodd td {background-color: #DDD}.skippedeven td {background-color: #CCC}.failedodd td,.attn {background-color: #F33}.failedeven td,.stripe .attn {background-color: #D00}.stacktrace {white-space:pre;font-family:monospace}.totop {font-size:85%;text-align:center;border-bottom:2px solid #000}.invisible {display:none}</style>
+</head>
+<body>
+<table>
+<tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
+<tr><th colspan="7">Suite</th></tr>
+<tr><td><a href="#t0">LoginAndReg</a></td><td class="num">3</td><td class="num attn">1</td><td class="num attn">4</td><td class="num">92,160</td><td></td><td></td></tr>
+<tr class="stripe"><td><a href="#t1">Credit Cards</a></td><td class="num">1</td><td class="num">0</td><td class="num attn">1</td><td class="num">10</td><td></td><td></td></tr>
+<tr><th>Total</th><th class="num">4</th><th class="num attn">1</th><th class="num attn">5</th><th class="num">92,170</th><th colspan="2"></th></tr>
+</table>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">LoginAndReg &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testngLearn.Test1</td><td><a href="#m0">multipleValidations</a></td><td rowspan="1">1657782104960</td><td rowspan="1">12</td></tr><tr class="failedodd"><td rowspan="3">testngLearn.WalletHubLogin</td><td><a href="#m1">loginWalletHub</a></td><td rowspan="3">1657782168149</td><td rowspan="3">28136</td></tr><tr class="failedodd"><td><a href="#m2">loginWalletHub</a></td></tr><tr class="failedodd"><td><a href="#m3">loginWalletHub</a></td></tr><tr><th colspan="4">LoginAndReg &#8212; skipped</th></tr><tr class="skippedeven"><td rowspan="1">testngLearn.Test1</td><td><a href="#m4">skipTest</a></td><td rowspan="1">1657782104984</td><td rowspan="1">1</td></tr><tr><th colspan="4">LoginAndReg &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">testngLearn.Test1</td><td><a href="#m5">doLogin</a></td><td rowspan="1">1657782196491</td><td rowspan="1">1</td></tr><tr class="passedeven"><td><a href="#m6">doRegistration</a></td><td rowspan="1">1657782196494</td><td rowspan="1">1</td></tr><tr class="passedeven"><td><a href="#m7">reachDashboard</a></td><td rowspan="1">1657782196497</td><td rowspan="1">1</td></tr></tbody>
+<tbody id="t1"><tr><th colspan="4">Credit Cards &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">testngLearn.CcSearchTools</td><td><a href="#m8">verifyCardTemplate</a></td><td rowspan="1">1657782196823</td><td rowspan="1">5</td></tr><tr><th colspan="4">Credit Cards &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">testngLearn.CcSearchTools</td><td><a href="#m9">verifyDescription</a></td><td rowspan="1">1657782196830</td><td rowspan="1">1</td></tr></tbody>
+</table>
+<h2>LoginAndReg</h2><h3 id="m0">testngLearn.Test1#multipleValidations</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href = "./screenshots/Promises1.jpeg" target = "_blank">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg" target = "_blank"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.lang.AssertionError: The following asserts failed:
+	Numbers don&apos;t match expected [5] but found [2],
+	Element is present! expected [false] but found [true]
+	at testngLearn.Test1.multipleValidations(Test1.java:59)
+... Removed 26 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">testngLearn.WalletHubLogin#loginWalletHub</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>diana@evolutionfinance.com</td><td>Abcd321*</td></tr><tr><th colspan="2">Messages</th></tr><tr><td colspan="2"><div class="messages"><a href = "./screenshots/Promises1.jpeg" target = "_blank">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg" target = "_blank"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id=&quot;dashboard-gauge-score&quot;]/span[1] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.3.0&apos;, revision: &apos;a4995e2c09*&apos;
+System info: host: &apos;JEBIN-ZEPHG14&apos;, ip: &apos;192.168.1.141&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\jebin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54445}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54445/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: b60a89404d2d49b9121d59287a5f95fc
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at utilities.WhActions.waitForElement(WhActions.java:107)
+	at testngLearn.WalletHubLogin.loginWalletHub(WalletHubLogin.java:82)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">testngLearn.WalletHubLogin#loginWalletHub</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>enhanceusr920@evolutionfinance.com</td><td>Abcd123*</td></tr><tr><th colspan="2">Messages</th></tr><tr><td colspan="2"><div class="messages"><a href = "./screenshots/Promises1.jpeg" target = "_blank">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg" target = "_blank"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id=&quot;dashboard-gauge-score&quot;]/span[1] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.3.0&apos;, revision: &apos;a4995e2c09*&apos;
+System info: host: &apos;JEBIN-ZEPHG14&apos;, ip: &apos;192.168.1.141&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\jebin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54394}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54394/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: f434e56037e1b1bd6c2dc3dd4464b792
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at utilities.WhActions.waitForElement(WhActions.java:107)
+	at testngLearn.WalletHubLogin.loginWalletHub(WalletHubLogin.java:82)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">testngLearn.WalletHubLogin#loginWalletHub</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>ashley@evolutionfinance.com</td><td>Abcd123*</td></tr><tr><th colspan="2">Messages</th></tr><tr><td colspan="2"><div class="messages"><a href = "./screenshots/Promises1.jpeg" target = "_blank">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg" target = "_blank"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for element to be clickable: By.xpath: //*[@id=&quot;dashboard-gauge-score&quot;]/span[1] (tried for 20 second(s) with 500 milliseconds interval)
+Build info: version: &apos;4.3.0&apos;, revision: &apos;a4995e2c09*&apos;
+System info: host: &apos;JEBIN-ZEPHG14&apos;, ip: &apos;192.168.1.141&apos;, os.name: &apos;Windows 11&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;17.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 103.0.5060.114, chrome: {chromedriverVersion: 103.0.5060.53 (a1711811edd7..., userDataDir: C:\Users\jebin\AppData\Loca...}, goog:chromeOptions: {debuggerAddress: localhost:54333}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:54333/devtoo..., se:cdpVersion: 103.0.5060.114, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:virtualAuthenticators: true}
+Session ID: ac3fdff1562d90adf9f9f7713c8a5844
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:87)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at utilities.WhActions.waitForElement(WhActions.java:107)
+	at testngLearn.WalletHubLogin.loginWalletHub(WalletHubLogin.java:82)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m4">testngLearn.Test1#skipTest</h3><table class="result"><tr><th>Exception</th></tr><tr><td><div class="stacktrace">org.testng.SkipException: Test skipped as condition not met!
+	at testngLearn.Test1.skipTest(Test1.java:65)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m5">testngLearn.Test1#doLogin</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m6">testngLearn.Test1#doRegistration</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m7">testngLearn.Test1#reachDashboard</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Credit Cards</h2><h3 id="m8">testngLearn.CcSearchTools#verifyCardTemplate</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href = "./screenshots/Promises1.jpeg" target = "_blank">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg" target = "_blank"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">junit.framework.AssertionFailedError
+	at junit.framework.Assert.fail(Assert.java:47)
+	at junit.framework.Assert.fail(Assert.java:53)
+	at testngLearn.CcSearchTools.verifyCardTemplate(CcSearchTools.java:13)
+... Removed 25 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m9">testngLearn.CcSearchTools#verifyDescription</h3><table class="result"><tr><th>Messages</th></tr><tr><td><div class="messages"><a href = "./screenshots/Promises1.jpeg">Screenshot</a><br/><br/><br/><br/><a href = "./screenshots/Promises1.jpeg"><img src = "./screenshots/Promises1.jpeg" width = "200"   ></a></div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="testngLearn.TestListener"/>
+    <listener class-name="org.uncommons.reportng.HTMLReporter"/>
+    <listener class-name="utilities.ExtentListener"/>
+  </listeners>
+  <test thread-count="5" name="LoginAndReg(failed)">
+    <classes>
+      <class name="testngLearn.Test1">
+        <methods>
+          <include name="multipleValidations"/>
+          <include name="closeBrowser"/>
+          <include name="skipTest"/>
+          <include name="closeDBConnection"/>
+          <include name="openDBConnectiono"/>
+          <include name="openBrowser"/>
+        </methods>
+      </class> <!-- testngLearn.Test1 -->
+      <class name="testngLearn.WalletHubLogin">
+        <methods>
+          <include name="loginWalletHub" invocation-numbers="0 1 2"/>
+          <include name="launchBrowser"/>
+          <include name="testStart"/>
+          <include name="allTestFinish"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testngLearn.WalletHubLogin -->
+    </classes>
+  </test> <!-- LoginAndReg(failed) -->
+  <test thread-count="5" name="Credit Cards(failed)">
+    <classes>
+      <class name="testngLearn.CcSearchTools">
+        <methods>
+          <include name="verifyCardTemplate"/>
+        </methods>
+      </class> <!-- testngLearn.CcSearchTools -->
+    </classes>
+  </test> <!-- Credit Cards(failed) -->
+</suite> <!-- Failed suite [Suite] -->
