@@ -3,11 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testngLearn.CcSearchTools">
+      <class name="testngLearn.WalletHubLogin">
         <methods>
-          <include name="verifyCardTemplate"/>
+          <include name="loginWalletHub" invocation-numbers="0 1 2"/>
+          <include name="launchBrowser"/>
+          <include name="testStart"/>
+          <include name="allTestFinish"/>
+          <include name="closeBrowser"/>
         </methods>
-      </class> <!-- testngLearn.CcSearchTools -->
+      </class> <!-- testngLearn.WalletHubLogin -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
