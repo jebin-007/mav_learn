@@ -28,13 +28,13 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WalletHubLoginMulitiBrowser {
-	static WebDriver driver;
+	WebDriver driver;
 	static WebDriverWait wait;
 	static Properties urlProperties;
 	static Properties locatoProperties;
 	static FileInputStream urlFile;
 	static FileInputStream locator;
-	static WhActions actions;
+	WhActions actions;
 	
 	@BeforeTest
 	void testStart() {
