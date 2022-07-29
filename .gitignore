@@ -1,4 +1,6 @@
+#Paths to ignore
 /target/
+/test-output
 
 #Class files
 *.class
