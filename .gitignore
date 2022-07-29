@@ -1,6 +1,7 @@
 #Paths to ignore
 /target/
 /test-output/
+/reports/
 
 #Class files
 *.class
