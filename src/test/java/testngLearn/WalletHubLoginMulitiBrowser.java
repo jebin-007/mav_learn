@@ -20,11 +20,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class WalletHubLogin {
+public class WalletHubLoginMulitiBrowser {
 	static WebDriver driver;
 	static WebDriverWait wait;
 	static Properties urlProperties;
@@ -71,13 +72,14 @@ public class WalletHubLogin {
 		driver.quit();
 	}
 	
-	@Test(dataProvider = "login-data")
-	void loginWalletHub(String email,String password) throws InterruptedException {
+	@Parameters({"browser"})
+	@Test
+	void loginWalletHub(String browser) throws InterruptedException {
 		
 			driver.get("https://efdevhub.info/");
 			driver.get(urlProperties.getProperty("login"));
-			actions.waitNsendKeys(driver, "login_email_id", email);
-			actions.sendKeys(driver, "login_password_id", password);
+			actions.waitNsendKeys(driver, "login_email_id", "ashley@evolutionfinance.com");
+			actions.sendKeys(driver, "login_password_id", "Abcd123*");
 			actions.click(driver, "login_button_xpath");
 			WebElement scoreGauge = actions.waitForElement(driver, "scoreGauge_xpath", "20");
 			Thread.sleep(3000);
