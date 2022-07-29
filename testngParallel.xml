@@ -7,17 +7,16 @@
     <listener class-name="utilities.ExtentListener" />
   </listeners>
   
-  <test thread-count = "5" name="LoginAndReg">
-    <classes>
-      <class name="testngLearn.Test1"/>
-      <class name="testngLearn.WalletHubLogin"/>
-      
-      
+  <test thread-count = "1" name="Login-chrome">
+  <parameter name="browser" value="chrome"/>
+    <classes>      
+      <class name="testngLearn.WalletHubLoginMulitiBrowser.java"/>      
     </classes>
   </test> <!-- Test -->
-  <test thread-count = "5"  name="Credit Cards">
+  <test thread-count = "1"  name="Login-firefox">
+  <parameter name="browser" value="firefox"/>
     <classes>
-       <class name="testngLearn.CcSearchTools"/>
+       <class name="testngLearn.WalletHubLoginMulitiBrowser.java"/>      
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

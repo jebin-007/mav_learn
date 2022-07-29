@@ -6,12 +6,14 @@ import utilities.ExcelReader;
 import utilities.WhActionReport;
 import utilities.WhActions;
 import java.time.Duration;
+import java.util.Date;
 import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -55,16 +57,16 @@ public class WalletHubLoginMulitiBrowser {
 	@BeforeMethod
 	void launchBrowser() {
 //		WebDriverManager.edgedriver().setup();
-		try {
-			driver = new ChromeDriver();
-			System.out.println("Driver lauch success");
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-			wait = new WebDriverWait(driver, Duration.ofSeconds(60));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			driver = new ChromeDriver();
+//			System.out.println("Driver lauch success");
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+//			wait = new WebDriverWait(driver, Duration.ofSeconds(60));
+//			
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 	}
 	
 	@AfterMethod
@@ -75,7 +77,17 @@ public class WalletHubLoginMulitiBrowser {
 	@Parameters({"browser"})
 	@Test
 	void loginWalletHub(String browser) throws InterruptedException {
-		
+		    Date d = new Date();
+		    System.out.println("Date for browser " + browser + " = " + d.toString());
+		    
+		    
+		    if(browser.equals("chrome")) {
+		    	driver = new ChromeDriver();
+		    }else if(browser.equals("firefox")) {
+		    	driver = new FirefoxDriver();
+		    }else {
+		    	driver  = new EdgeDriver();
+		    }
 			driver.get("https://efdevhub.info/");
 			driver.get(urlProperties.getProperty("login"));
 			actions.waitNsendKeys(driver, "login_email_id", "ashley@evolutionfinance.com");
