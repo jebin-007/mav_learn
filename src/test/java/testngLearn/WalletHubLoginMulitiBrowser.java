@@ -1,6 +1,8 @@
 package testngLearn;
 
 import java.io.FileInputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 import utilities.ExcelReader;
 import utilities.WhActionReport;
@@ -9,12 +11,17 @@ import java.time.Duration;
 import java.util.Date;
 import java.util.Properties;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
@@ -24,8 +31,6 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WalletHubLoginMulitiBrowser {
 	WebDriver driver;
@@ -76,24 +81,26 @@ public class WalletHubLoginMulitiBrowser {
 	
 	@Parameters({"browser"})
 	@Test
-	void loginWalletHub(String browser) throws InterruptedException {
+	void loginWalletHub(String browser) throws InterruptedException, MalformedURLException {
 		    Date d = new Date();
+		    Capabilities cap;
 		    System.out.println("Date for browser " + browser + " = " + d.toString());
 		    
 		    
 		    if(browser.equals("chrome")) {
-		    	driver = new ChromeDriver();
+		    	cap = new ChromeOptions();
 		    }else if(browser.equals("firefox")) {
-		    	driver = new FirefoxDriver();
+		    	cap = new FirefoxOptions();
 		    }else {
-		    	driver  = new EdgeDriver();
+		    	cap = new EdgeOptions();
 		    }
+		    driver = new RemoteWebDriver(new URL("http://localhost:4444/"), cap);
 			driver.get("https://efdevhub.info/");
 			driver.get(urlProperties.getProperty("login"));
 			actions.waitNsendKeys(driver, "login_email_id", "ashley@evolutionfinance.com");
 			actions.sendKeys(driver, "login_password_id", "Abcd123*");
 			actions.click(driver, "login_button_xpath");
-			WebElement scoreGauge = actions.waitForElement(driver, "scoreGauge_xpath", "20");
+			WebElement scoreGauge = actions.waitForElement(driver, "scoreGauge_xpath", "120");
 			Thread.sleep(3000);
 			System.out.println(scoreGauge.getText());
 			Actions moveMouse = actions.moveTo(driver, "nameMenu_xpath");
