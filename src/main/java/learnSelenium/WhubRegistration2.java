@@ -1,10 +1,12 @@
 package learnSelenium;
 import org.apache.logging.log4j.Logger;
+import org.apache.poi.ss.usermodel.Row;
 
 import java.io.FileInputStream;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Properties;
+import java.util.Random;
 
 import org.apache.logging.log4j.LogManager;
 
@@ -13,6 +15,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import utilities.AddressSplitter;
+import utilities.ExcelReader;
 import utilities.RandomMethods;
 import utilities.WhActions;
 
@@ -25,18 +30,27 @@ public class WhubRegistration2 {
 		 * Registration data Map generation
 		 * 
 		 */
-		HashMap<String, String> regData = new HashMap<String, String>();
+		HashMap<String, String> regData = getRegistrationData();
 		
-		regData.put("firstName","CRYSTAL");
-		regData.put("lastName","COOPER");
-		regData.put("address1","1808 S 16TH ST");
-		regData.put("city","ESCANABA");
-		regData.put("state","MI");
-		regData.put("zipCode","49829");
-		regData.put("dob","01/01/1964");
-		regData.put("ssn","2838");
+//		regData.put("firstName","CRYSTAL");
+//		regData.put("lastName","COOPER");
+//		regData.put("address1","1808 S 16TH ST");
+//		regData.put("city","ESCANABA");
+//		regData.put("state","MI");
+//		regData.put("zipCode","49829");
+//		regData.put("dob","01/01/1964");
+//		regData.put("ssn","2838");
+//		
+//		
 		
-		
+		System.out.println(regData.get("firstName"));
+		System.out.println(regData.get("address1"));
+		System.out.println(regData.get("city"));
+		System.out.println(regData.get("state"));
+		System.out.println(regData.get("zipcode"));
+		System.out.println(regData.get("dob"));
+		System.out.println(regData.get("ssn"));
+		System.out.println(regData.get("aptNo"));
 		
 		/*
 		 * 
@@ -75,9 +89,10 @@ public class WhubRegistration2 {
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"join-address\"]/form/div[2]/input"))).sendKeys(regData.get("address1"));
 			driver.findElement(By.xpath("//*[@id=\"join-address\"]/form/div[9]/button[2]")).click();
 //			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"join-address\"]/form/div[3]/input[1]"))).sendKeys(regData.get("address1"));
-			driver.findElement(By.xpath("//*[@id=\"join-address\"]/form/div[4]/input[1]")).sendKeys(regData.get("city"));
-			driver.findElement(By.xpath("//*[@id=\"join-address\"]/form/div[4]/input[2]")).sendKeys(regData.get("state"));
-			driver.findElement(By.xpath("//*[@id=\"join-address\"]/form/div[4]/input[3]")).sendKeys(regData.get("zipCode"));
+			driver.findElement(By.xpath("//input[@ng-model='fields.aptno']")).sendKeys(regData.get("aptNo"));
+			driver.findElement(By.xpath("//input[@ng-model='fields.city']")).sendKeys(regData.get("city"));
+			driver.findElement(By.xpath("//input[@ng-model='fields.state']")).sendKeys(regData.get("state"));
+			driver.findElement(By.xpath("//input[@ng-model='fields.zip']")).sendKeys(regData.get("zipcode"));
 			Thread.sleep(5000);
 			driver.findElement(By.xpath("//*[@id=\"join-address\"]/form/div[9]/button[2]")).click();
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"join-phone\"]/form/div[3]/button[3]"))).click();
@@ -100,6 +115,47 @@ public class WhubRegistration2 {
 			e.printStackTrace();
 		}
 
+	}
+	
+	
+	public static HashMap<String, String> getRegistrationData(){
+		ExcelReader regExcel = new ExcelReader("./src/main/resources/registration-data.xlsx", "Reg Data");
+		HashMap<String, String> regData = new HashMap<String, String>();
+		int maxRows = regExcel.getRowCount();
+		Random random = new Random();		
+		while(true) {
+			int row = random.nextInt(maxRows);
+			if(regExcel.getCellData(row, 13).equalsIgnoreCase("no") ) {
+				continue;
+			}
+			
+			regData.put("firstName",regExcel.getCellData(row, 1));
+			regData.put("lastName",regExcel.getCellData(row, 2));
+			
+			regData.put("dob", dobFormatted(regExcel.getCellData(row, 6)));
+			regData.put("ssn", last4Ssn(regExcel.getCellData(row, 5)));
+			
+			HashMap<String, String> splitAdd = AddressSplitter.split(regExcel.getCellData(row, 3));
+			
+			regData.put("address1",splitAdd.get("street"));
+			regData.put("city",splitAdd.get("city"));
+			regData.put("state",splitAdd.get("state"));
+			regData.put("zipcode",splitAdd.get("zipcode"));
+			regData.put("aptNo",regExcel.getCellData(row, 4));
+			break;
+		}
+		return regData;
+		
+		
+	}
+	
+	public static String dobFormatted(String dob) {
+		String yearString = dob.substring(0, 4);
+		return "01/01/" + yearString;
+	}
+	
+	public static String last4Ssn(String fullSsn) {
+		return fullSsn.substring(5);
 	}
 
 }
