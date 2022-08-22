@@ -2,11 +2,17 @@ package testngLearn;
 
 import org.testng.Assert;
 import org.testng.Reporter;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
 
 
 
 public class CcSearchTools {
+
+	@BeforeSuite
+	void setup2() {
+		System.out.println("This is second setup");
+	}
 	
 	@Test
 	void verifyCardTemplate() {

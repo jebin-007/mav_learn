@@ -5,14 +5,21 @@ import static org.testng.Assert.assertEquals;
 import org.testng.Assert;
 import org.testng.SkipException;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @SuppressWarnings("unused")
 public class Test1 {
+	
+	@BeforeSuite
+	void setup1() {
+		System.out.println("First setup run");
+	}
 	
 	@BeforeMethod
 	void openBrowser() {
@@ -76,5 +83,9 @@ public class Test1 {
 	}
 	
 	
+	@AfterSuite
+	void postSetup() {
+		System.out.println("First post setup done");
+	}
 
 }

@@ -2,6 +2,7 @@
 /target/
 /test-output/
 /reports/
+/screenshots/
 
 #Class files
 *.class
